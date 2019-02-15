@@ -7,20 +7,30 @@ import java.util.ArrayList;
 public class Client {
 
 	public String nom;
-	static ArrayList<Client> clientList = new ArrayList<Client>();
+	public static ArrayList<Client> clientList = new ArrayList<Client>();
 	
 	public Client(String nom){
 		this.nom = nom;
 	}
 	
+	public Client(){
+		
+	}
+	
 	public static void getClients() throws FileNotFoundException, IOException{
-		String file = "commandes.txt";
+		String file = "src/commandes.txt";
 		try(BufferedReader br = new BufferedReader(new FileReader(file))){
-			
 			String line;
-			while((line = br.readLine()) != "Plats :"){
-				clientList.add(new Client(line));
+			while(!(line = br.readLine()).equals("Plats :")){
+				if(!line.equals("Clients :")){
+					clientList.add(new Client(line));
+				}
+				
 			}
 		}
+	}
+	
+	public static ArrayList<Client> getListeClient(){
+		return clientList;
 	}
 }

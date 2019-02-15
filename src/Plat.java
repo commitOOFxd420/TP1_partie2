@@ -9,11 +9,15 @@ public class Plat {
 	public double prix;
 	public String nom;
 	
-	static ArrayList<Plat> listePlats = new ArrayList<Plat>();
+	public static ArrayList<Plat> listePlats = new ArrayList<Plat>();
 	
 	public Plat(String nom, double prix){
 		this.nom = nom;
 		this.prix = prix;
+	}
+	
+	public Plat(){
+		
 	}
 	
 	public static void getPlats()throws FileNotFoundException, IOException{
@@ -35,6 +39,10 @@ public class Plat {
 				
 			}
 		}
+	}
+	
+	public static ArrayList<Plat> getListePlat(){
+		return listePlats;
 	}
 
 }

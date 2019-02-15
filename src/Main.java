@@ -8,6 +8,6 @@ public class Main {
 		
 		Client.getClients();
 		Plat.getPlats();
-		
+		Commande.getCommandes();
 	}
 }
